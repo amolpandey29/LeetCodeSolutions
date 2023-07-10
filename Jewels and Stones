@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        int i,j,c = 0, n = jewels.size(), m = stones.size();
+        for(i = 0; i < n;i++)
+        {
+            for(j = 0; j < m; j++)
+            {
+                if(jewels[i] == stones[j]) c++;
+            }
+        }
+        return c;
+    }
+};
