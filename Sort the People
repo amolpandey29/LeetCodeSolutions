@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        map<int,string> m;
+        int i, n = names.size();
+        for(i = 0; i < n; i++)
+        {
+            m.emplace(heights[i], names[i]);
+        }
+        names.clear();
+        for(auto j : m )
+        {
+            names.push_back(j.second);
+        }
+        reverse(names.begin(),names.end());
+        return names;
+    }
+};
