@@ -1,0 +1,27 @@
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+    ListNode* t = new ListNode(0);
+    ListNode* temp = t;
+    t->next = list1;
+    while (t->next) t = t->next;
+    t->next = list2;
+    vector<int> v;
+    t = temp->next;
+    while (t) {
+        v.push_back(t->val);
+        t = t->next;
+    }
+    sort(v.begin(), v.end());
+    t = temp->next;
+    int i = 0;
+    while (t) {
+        t->val = v[i++];
+        t = t->next;
+    }
+
+    ListNode* result = temp->next;
+    delete temp;
+    return result;
+  }
+};
