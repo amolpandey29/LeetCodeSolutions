@@ -1,0 +1,17 @@
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        vector<ListNode*> v;
+        ListNode* t = head;
+         std::vector<ListNode*>::iterator i;
+        while(t)
+        {
+            i = find(v.begin(),v.end(),t);
+            if(i != v.end()) break;
+            v.push_back(t);
+            t = t->next;
+        }
+        if(t) return t;
+        return nullptr;
+    }
+};
